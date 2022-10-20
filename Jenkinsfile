@@ -10,11 +10,11 @@ pipeline {
             when {
                 branch 'master'
             }
-            sh "docker build -t docker/getting-started ."
+            sh "docker build -t docker/jenkins-docker-pipeline ."
 
             steps {
                 withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
-                    sh("docker push docker/getting-started")
+                    sh("docker push docker/jenkins-docker-pipeline")
                 }
             }
         }
